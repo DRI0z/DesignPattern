@@ -8,11 +8,18 @@ public class Program
     static void Main(string[] args)
     {
         TestFactory();
+        //TestSingleton();
     }
 
     private static void TestFactory()
     {
-        var dialog = new WebDialog();
+        Dialog dialog = new WebDialog();
+        dialog.Render();
+
+        dialog = new WindowDialog();
+        dialog.Render();
+        
+        dialog = new MobileDialog();
         dialog.Render();
     }
 
