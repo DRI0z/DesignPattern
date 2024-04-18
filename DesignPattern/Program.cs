@@ -1,4 +1,5 @@
 ﻿using DesignPattern.Factory;
+using DesignPattern.Observer;
 using DesignPattern.Singleton;
 
 namespace DesignPattern;
@@ -7,8 +8,14 @@ public class Program
 {
     static void Main(string[] args)
     {
-        TestFactory();
+        TestObserver();
+        //TestFactory();
         //TestSingleton();
+    }
+
+    private static void TestObserver()
+    {
+        
     }
 
     private static void TestFactory()
