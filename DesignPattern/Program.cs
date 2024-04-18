@@ -1,6 +1,7 @@
 ﻿using DesignPattern.Factory;
 using DesignPattern.Observer;
 using DesignPattern.Singleton;
+using Faker;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DesignPattern;
@@ -21,11 +22,19 @@ public class Program
 
         for (int i = 0; i < 20; i++)
         {
+            Client client = null;
             if (i % 2 == 0)
-                clients.Add(new($"Name-{i}", Authors.Levy));
+                client = new(NameFaker.Name(), Authors.Levy);
             else
-                clients.Add(new($"Name-{i}", Authors.Marx));
+                client = new(NameFaker.Name(), Authors.Marx);
+
+            bookshop.AddListener(client);
+            clients.Add(client);
         }
+
+        bookshop.Supply(Authors.Levy, 1);
+        bookshop.Supply(Authors.Marx, 10);
+
     }
 
     private static void TestFactory()
